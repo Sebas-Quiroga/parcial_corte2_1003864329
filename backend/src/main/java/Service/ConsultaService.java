@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 @Service
 public class ConsultaService implements IConsultaserice {
-}@Autowired
+@Autowired
 private IConsultaserice con;
 
     @Override
@@ -51,4 +51,3 @@ private IConsultaserice con;
     }
 }
 
-}

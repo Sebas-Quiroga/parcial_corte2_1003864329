@@ -15,7 +15,7 @@ import java.util.Optional;
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("api/Autor")
-public class PacienteController {
+public class ConsultaController {
     //Inyectar el servicio
     @Autowired
     private IConsultaserice service;
