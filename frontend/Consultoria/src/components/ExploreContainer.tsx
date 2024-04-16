@@ -1,34 +1,43 @@
-// ExploreContainer.tsx
+// src/pages/PatientList.tsx
 
-import React from 'react';
-import './ExploreContainer.css';
-import { IonInput, IonItem, IonButton, IonCard, IonCardHeader, IonCardTitle, IonCardContent } from '@ionic/react';
+import { IonButton, IonContent, IonHeader, IonItem, IonLabel, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router';
 
-interface ContainerProps {}
+const PatientList: React.FC = () => {
+  const [patients, setPatients] = useState<any[]>([]);
+  const history = useHistory();
 
-const ExploreContainer: React.FC<ContainerProps> = () => {
+  useEffect(() => {
+    // Cargar pacientes aquí si lo necesitas
+  }, []);
+
+  const navigateToAddPatient = () => {
+    history.push('/add-patient');
+  };
+
   return (
-    <div id="container">
-      <IonCard>
-        <IonCardHeader>
-          <IonCardTitle >Inicio de Sesión</IonCardTitle>
-        </IonCardHeader>
-
-        <IonCardContent>
-          <IonItem>
-            <IonInput placeholder="Nombre de usuario" maxlength={20} />
-          </IonItem>
-
-          <IonItem>
-            <IonInput type="password" placeholder="Contraseña" maxlength={20} />
-          </IonItem>
-        </IonCardContent>
-
-        <IonButton expand="full">Ingresar</IonButton>
-      </IonCard>
-    </div>
+    <IonPage>
+      <IonHeader>
+        <IonToolbar>
+          <IonTitle>Lista de Pacientes</IonTitle>
+        </IonToolbar>
+      </IonHeader>
+      <IonContent>
+        <IonList>
+          {patients.map((patient, index) => (
+            <IonItem key={index}>
+              <IonLabel>{patient.name}</IonLabel>
+              <IonLabel>{patient.dob}</IonLabel>
+              <IonLabel>{patient.doctor.name}</IonLabel>
+              <IonLabel>{patient.doctor.specialty}</IonLabel>
+            </IonItem>
+          ))}
+        </IonList>
+        <IonButton onClick={navigateToAddPatient}>Agregar Paciente</IonButton>
+      </IonContent>
+    </IonPage>
   );
 };
 
-export default ExploreContainer;
-
+export default PatientList;
