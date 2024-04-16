@@ -35,7 +35,7 @@ private IConsultaserice con;
             Consulta consultaUpdate = ps.get();
             consultaUpdate.setId(consulta.getId());
             consultaUpdate.setEspecialidad(consulta.getEspecialidad());
-            consultaUpdate.getNom_medico(consulta.getNom_medico());
+            consultaUpdate.setNom_medico(consulta.getNom_medico());
 
 
             //Actualizar el objeto cliente
