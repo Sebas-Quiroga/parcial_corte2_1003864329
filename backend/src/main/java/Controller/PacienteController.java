@@ -2,12 +2,12 @@ package Controller;
 
 
 import IService.IConsultaserice;
-import com.corhuila.Consultoria_medica.ConsultoriaMedicaApplication;
+import
 
 ;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
+import Document.Consulta;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,24 +21,24 @@ public class PacienteController {
     private IConsultaserice service;
 
     @GetMapping()
-    public List<ConsultoriaMedicaApplication> findAll() {
+    public List<Consulta> findAll() {
         return service.findAll();
     }
 
     @GetMapping("/{id}")
-    public Optional<ConsultoriaMedicaApplication> findById(@PathVariable String id) {
+    public Optional<Consulta> findById(@PathVariable String id) {
         return service.findById(id);
     }
 
     @PostMapping()
-    public ConsultoriaMedicaApplication save(@RequestBody ConsultoriaMedicaApplication consultoria) {
+    public Consulta save(@RequestBody Consulta consultoria) {
         return service.save(consultoria);
     }
 
 
     @PutMapping("/{id}")
-    public void update(@RequestBody  consul, @PathVariable String id) {
-        service.update(consul, id);
+    public void update(@RequestBody  Consulta consulta, @PathVariable String id) {
+        service.update(consulta, id);
     }
     @DeleteMapping("/{id}")
     public void delete(@PathVariable String id) {
