@@ -1,5 +1,7 @@
 {
-  "name": "ionic-app-base",
-  "integrations": {},
-  "type": "vue-vite"
+  "name": "shopping-cart",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
 }
